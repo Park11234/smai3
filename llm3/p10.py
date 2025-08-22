@@ -1,13 +1,14 @@
 import streamlit as st
 from PIL import Image
 
-from MyLLM import save_carpturefile, geminiModel, progressBar
+from MyLLM import progressBar, openAiModel, save_carpturefile
 
 # Sidebar
-st.sidebar.markdown("Clicked Page 5")
+st.sidebar.markdown("clicked Page 10")
 
 # Page
-st.title("Page 5")
+st.title("Page 10")
+
 picture = st.camera_input("Take a picture")
 
 if picture:
@@ -16,34 +17,8 @@ if picture:
     text = st.text_area(label="질문입력:",  placeholder="질문을 입력 하세요")
     if st.button("SEND"):
         img = Image.open("capture/temp.png")
-        model = geminiModel()
+        model = openAiModel()
         my_bar = progressBar("Operation in progress. Please wait.")
-        response = model.generate_content( [ text , img ] )
+        response = model.chat.completions.create()
         my_bar.empty()
         st.info(response.text)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

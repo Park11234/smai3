@@ -15,9 +15,9 @@ def test(imgName, prompt):
         messages=[
             {"role": "system", "content": "당신은 한국인이고, 친절하고 꼼꼼한 서포터 입니다. 질문에 정성을 다해 답변합니다."},
             {"role": "user", "content": [
-                {"type": "text", "text":   prompt  },
-                {"type": "image_url", "image_url": {
-                    "url": f"data:image/jpg;base64,{img}"}
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url":
+                    {"url": f"data:image/jpg;base64,{img}"}
                  }
             ]}
         ],
